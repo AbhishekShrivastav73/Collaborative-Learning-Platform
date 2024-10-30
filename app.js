@@ -6,6 +6,7 @@ const mongooseConnection = require("./config/mongoose");
 const authRoutes = require("./routes/authRoutes");
 const groupRoutes = require("./routes/groupRoutes");
 const blogRoutes = require("./routes/blogRoutes");
+const userRoutes = require("./routes/userRoutes");
 const cookieParser = require('cookie-parser');
 const socketIO = require('socket.io');
 const socketHandler = require('./utils/socketHandler');
@@ -34,6 +35,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/api/auth", authRoutes);
 app.use("/api/groups", groupRoutes);  
 app.use("/api/blogs", blogRoutes);  
+app.use("/api/users", userRoutes);  
 
 server.listen(process.env.PORT || 5000, () => {
   console.log(`Server is running on port ${process.env.PORT || 3000}`);

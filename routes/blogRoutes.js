@@ -1,5 +1,5 @@
 const express = require('express');
-const { createPost, getPost } = require('../controllers/blogController');
+const { createPost, getPost, getPostById, updatePost, deletePost } = require('../controllers/blogController');
 const { authMiddleware } = require('../middleware/authMiddleware');
 const router = express.Router();
 const upload = require('../middleware/multer');
@@ -13,6 +13,9 @@ router.post('/upload', upload.single('image'), (req, res) => {
     res.status(200).json({ imageUrl });
 });
 
-router.get('/:tag', getPost);
+router.get('/', getPost);
+router.get('/:id', getPostById);
+router.put('/:id', updatePost);
+router.delete('/:id', deletePost);
 
 module.exports = router;
