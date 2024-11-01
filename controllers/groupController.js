@@ -67,6 +67,7 @@ module.exports.deleteGroup = async function (req, res) {
   });
 };
 
+
 // 2. Member Management Routes
 
 module.exports.addMember = async function (req, res) {
@@ -265,8 +266,6 @@ module.exports.sendMessage = async function (req, res) {
     res.status(500).json({ message: "Error sending message", error });
   }
 };
-
-
 
 // Get all messages of a group
 module.exports.getMessages = async function (req, res) {
